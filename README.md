@@ -2,6 +2,8 @@
 
 This plugin will allow you to create CSS files and apply them for every dashboard independently.
 
+Currently a work in progress but functional. Looking to clean up the code and add more error handling. This is my first nodejs/react project.
+
 ### Plugin Page
 
 ![Image of plugin page](https://raw.githubusercontent.com/aaron-nimocks/kibana-dashboard-custom-css/master/images/pluginpage.png)

@@ -1,0 +1,129 @@
+.euiBreadcrumbs {
+  @include euiFontSizeS;
+}
+
+.euiBreadcrumb {
+  display: inline-block;
+
+  &:not(.euiBreadcrumb--last) {
+    margin-right: $euiBreadcrumbSpacing;
+  }
+}
+
+.euiBreadcrumb--last {
+  font-weight: $euiFontWeightMedium;
+}
+
+.euiBreadcrumb--collapsed {
+  color: $euiColorLightShade;
+}
+
+.euiBreadcrumbSeparator {
+  flex-shrink: 0;
+  pointer-events: none;
+  display: inline-block;
+  margin-right: $euiBreadcrumbSpacing;
+  width: 1px;
+  height: $euiSize;
+  transform: translateY(.2em) rotate(15deg);
+  background: $euiColorLightShade;
+}
+
+.euiBreadcrumbs__inPopover {
+  .euiBreadcrumb--last.euiLink.euiLink--text {
+    font-weight: $euiFontWeightRegular;
+    color: $euiColorDarkShade;
+  }
+}
+
+.euiBreadcrumb__collapsedBadge {
+  height: $euiSize;
+  margin-top: -$euiSizeM / 2;
+  background-color: transparentize($euiColorDarkestShade, .85);
+
+  .euiBadge__content {
+    margin-top: -$euiSizeXS / 2;
+  }
+}
+
+/**
+ * 1. Can't target separator vs breadcrumb with -of-type because it takes
+ *    the dom element into consideration too and there could be divs, or spans, or a's
+ *    as breadcrumbs.
+ */
+
+.euiBreadcrumbs--responsive {
+  // Laptop
+  @include euiBreakpoint('l') {
+    .euiBreadcrumbSeparator,
+    .euiBreadcrumb {
+      display: none;
+
+      // Only show last 4 breadcrumbs
+      &:nth-last-child(-n+7) { /* 1 */
+        display: inline-block;
+      }
+    }
+  }
+
+  // Tablets
+  @include euiBreakpoint('m') {
+    .euiBreadcrumbSeparator,
+    .euiBreadcrumb {
+      display: none;
+
+      // Only show last 2 breadcrumbs
+      &:nth-last-child(-n+3) { /* 1 */
+        display: inline-block;
+      }
+    }
+  }
+
+  // Mobile
+  @include euiBreakpoint('xs', 's') {
+    .euiBreadcrumbSeparator,
+    .euiBreadcrumb {
+      display: none;
+
+      // Only show last 1 breadcrumb
+      &:nth-last-child(-n+1) { /* 1 */
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.euiBreadcrumbs--truncate {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  .euiBreadcrumb:not(.euiBreadcrumb--collapsed) {
+    max-width: $euiBreadcrumbTruncateWidth;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &.euiBreadcrumb--last {
+      max-width: none;
+    }
+  }
+
+  .euiBreadcrumbSeparator {
+    // Align with flex versus inline-block misaligns the separator slightly
+    transform: translateY(0) rotate(15deg);
+  }
+
+  .euiBreadcrumbBadge {
+    margin-top: -$euiSizeXS / 2;
+  }
+}
+
+.euiBreadcrumb--truncate {
+  white-space: nowrap;
+  max-width: $euiBreadcrumbTruncateWidth;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  vertical-align: top; // overflow hidden causes misalignment of links and slashes, this fixes that
+}

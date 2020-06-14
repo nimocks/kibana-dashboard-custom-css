@@ -1,0 +1,9 @@
+.euiModal {
+    width:  700px;
+    height: 600px;
+}
+
+.textareaModal {
+    max-width: 100%;
+    height: 380px;
+}

@@ -6,6 +6,13 @@ Currently a work in progress but functional. Looking to clean up the code and ad
 
 Developed on Kibana version 7.7.1
 
+## To Do
+
+* Rename states and variable to be consistent
+* Learn me some more React so I make the code cleaner
+* Add error handling
+* Maybe a CSS editor and formatter vs just plain text
+
 ### Plugin Page
 
 ![Image of plugin page](https://raw.githubusercontent.com/aaron-nimocks/kibana-dashboard-custom-css/master/images/pluginpage.png)

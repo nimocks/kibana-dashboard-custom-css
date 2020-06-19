@@ -12,6 +12,8 @@ Developed on Kibana version 7.7.1
 * Learn me some more React so I make the code cleaner
 * Add error handling
 * Maybe a CSS editor and formatter vs just plain text
+* Currently only works with default space
+* Need to fix the URL REGEX. Some kibana URL's generate the URL paramenters in a different order and messes up the REGEX
 
 ### Plugin Page
 
